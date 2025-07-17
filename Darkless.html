@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darkless Oyun Dünyası</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1055/1055646.png" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle, #000000, #1a1a1a);
+      color: white;
+      overflow-x: hidden;
+      animation: bgAnimation 30s infinite alternate;
+    }
+
+    @keyframes bgAnimation {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px 20px;
+      font-size: 2.5em;
+      font-weight: bold;
+      text-shadow: 0 0 15px #f0f;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .game {
+      background: #222;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 20px #0ff4;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .game:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #0ff;
+    }
+
+    .game img {
+      width: 100%;
+      display: block;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .game h3 {
+      margin: 0;
+      padding: 15px;
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #aaa;
+      font-size: 0.9em;
+    }
+
+    audio {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      header { font-size: 2em; padding: 30px 10px 10px; }
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      background: white;
+      border-radius: 50%;
+      width: 5px;
+      height: 5px;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(100vh); }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/01/audio_6d6b63b29a.mp3?filename=cyberpunk-moonlight-sonata-139219.mp3" type="audio/mp3" />
+  </audio>
+
+  <header>🎮 Darkless Oyun Dünyası 🎮</header>
+
+  <div class="container">
+    <div class="game" onclick="window.open('https://example.com/fps')">
+      <img src="https://cdn.pixabay.com/photo/2020/07/02/08/47/war-5362557_1280.jpg" alt="FPS Oyun">
+      <h3>FPS Oyunu</h3>
+    </div>
+    <div class="game" onclick="window.open('https://example.com/race')">
+      <img src="https://cdn.pixabay.com/photo/2020/04/08/15/24/car-5016876_1280.jpg" alt="Yarış Oyunu">
+      <h3>Yarış Oyunu</h3>
+    </div>
+    <div class="game" onclick="window.open('https://example.com/platform')">
+      <img src="https://cdn.pixabay.com/photo/2020/10/25/19/28/platform-5686654_1280.png" alt="Platform Oyunu">
+      <h3>Platform Oyunu</h3>
+    </div>
+  </div>
+
+  <footer>© 2025 Darkless Oyun Dünyası | Tüm hakları saklıdır.</footer>
+
+  <script>
+    function createSnowflake() {
+      const snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+      snowflake.style.left = Math.random() * window.innerWidth + "px";
+      snowflake.style.animationDuration = 2 + Math.random() * 3 + "s";
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 5000);
+    }
+    setInterval(createSnowflake, 200);
+  </script>
+</body>
+</html>
